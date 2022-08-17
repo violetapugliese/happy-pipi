@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Rock+Salt&display=swap"
+        rel="stylesheet">
+    <title> ♥ PIPI GIFT ♥ </title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            background-color: #505050;
+        }
+
+        .scene {
+            width: 367.41px;
+            height: 240px;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transform-origin: center right;
+            transition: transform 1s;
+        }
+
+        .card__face {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            backface-visibility: hidden;
+        }
+
+        .card__face--front {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+            transition: transform 1s;
+            transform-style: preserve-3d;
+
+            background: linear-gradient(67.78deg, #000000 32.22%, #4E4E4E 91.75%);
+            box-shadow: 18px 18px 66px rgba(0, 0, 0, 0.65);
+            border-radius: 20px;
+
+        }
+
+        .card__face--front-text {
+            z-index: 1;
+
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 35px;
+
+            color: #FFF1FE;
+
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .card__face--front-shadow {
+            z-index: 0;
+            position: absolute;
+            width: 253px;
+            height: 61px;
+            background: radial-gradient(40.79% 40.79% at 50% 50%, #FF01E6 0%, rgba(255, 1, 230, 0) 100%);
+        }
+
+        .card__face--back {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 367.41px;
+            height: 240px;
+            transform: rotateY(180deg);
+
+            background: linear-gradient(68.5deg, #FF01E6 -1.99%, #FFF1FE 101.99%);
+            box-shadow: 18px 18px 66px rgba(0, 0, 0, 0.65);
+            border-radius: 20px;
+        }
+
+        .card__face--back-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 60%;
+            padding: 30px;
+        }
+
+        .card__face--back p {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 14px;
+            color: #FFF1FE;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .card__face--back .fecha {
+            font-size: 9px;
+        }
+
+        .card__face--back-firma {
+            font-family: 'Rock Salt';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 30px;
+            line-height: 43px;
+            /* or 143% */
+            padding: 40px;
+            text-align: center;
+
+            color: #FFFFFF;
+
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            transform: rotate(-7.04deg);
+        }
+
+        .card.is-flipped {
+            transform: translateX(-100%) rotateY(-180deg);
+        }
+        .hide {
+            backface-visibility: hidden;
+        }
+
+        @media (max-width: 425px) {
+            .scene {
+                transform: rotate(-90deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="scene">
+            <div class="card">
+                <div class="card__face card__face--front">
+                    <span class="card__face--front-text">PIPI CARD</span>
+                    <div class="card__face--front-shadow"></div>
+                </div>
+                <div class=".card_face card__face--back hide">
+                    <div class="card__face--back-text">
+                        <p>CANJEALA POR LA MOCHILA MÁS IBCREÍBLE QUE ENCUENTRES ;)</p>
+                        <p class="fecha">DESDE 08/2022 <br> HASTA 11/2022</p>
+                    </div>
+                    <div class="card__face--back-firma">
+                        <span>¡Feliz cumple Pi!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var card = document.querySelector('.card');
+        var cardBack = document.querySelector('.card__face--back');
+        var cardFront = document.querySelector('.card__face--front');
+        card.addEventListener('click', function () {
+            card.classList.toggle('is-flipped');
+            setTimeout(( ) => {
+                cardBack.classList.toggle('hide');
+                cardFront.classList.toggle('hide');
+            }, 300)
+        });
+    </script>
+</body>
+
+</html>
